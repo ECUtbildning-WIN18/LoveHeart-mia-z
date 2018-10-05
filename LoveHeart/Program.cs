@@ -10,7 +10,7 @@ namespace LoveHeart
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Yo whaddup stop reading my shit i havent committed anything smfh.");
+            
         }
     }
 }
