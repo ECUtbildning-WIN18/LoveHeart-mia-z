@@ -10,7 +10,9 @@ namespace LoveHeart
     {
         static void Main(string[] args)
         {
-            
+            Console.SetWindowSize(81, 26);
+            MenuHandler mh = new MenuHandler();
+            mh.Run();
         }
     }
 }

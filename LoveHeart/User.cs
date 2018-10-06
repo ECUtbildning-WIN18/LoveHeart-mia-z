@@ -8,7 +8,7 @@ namespace LoveHeart
 {
     class User
     {
-        public enum Accessability
+        public enum Accessibility
         {
             SysAdmin,
             Veterinarian,
@@ -16,14 +16,14 @@ namespace LoveHeart
             Patient
         }
 
-        string Name { get; }
-        int EmployeeID { get; }
-        Accessability Power { get; }
+        string FirstName { get; }
+        string SecondName { get; }
+        Accessibility Power { get; }
 
-        public User(string name, int eid, Accessability power)
+        public User(string firstName, string secondName, Accessibility power)
         {
-            Name = name;
-            EmployeeID = eid;
+            FirstName = firstName;
+            SecondName = secondName;
             Power = power;
         }
     }
