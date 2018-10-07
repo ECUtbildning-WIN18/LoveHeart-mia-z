@@ -8,56 +8,63 @@ namespace LoveHeart
 {
     class PreLogin : Draw
     {
-        public enum Inputs { User, Pass }
+        public enum Inputs { User, Pass, Check }
         public Inputs currentInput = Inputs.User;
 
-        public string UserName;
-        public string PassWord;
+        public string UserName = "";
+        public string PassWord = "";
 
         public MenuHandler MenuHandler;
 
         public PreLogin(MenuHandler menuHandler)
         {
             MenuHandler = menuHandler;
+
+            ClearInside();
             DrawBox();
+
             UserName = GetLoginInfo();
-            if (UserName == "")
-            {
-                ClearInside();
-                WriteAtJustified("Nothing was entered, press enter to restart..", yMax / 2);
-                Console.ReadLine();
-                return;
-            }
-            PassWord = GetLoginInfo();
-            if (UserName == "")
-            {
-                ClearInside();
-                WriteAtJustified("Nothing was entered, press enter to restart..", yMax / 2);
-                Console.ReadLine();
-                return;
-            }
+            if (currentInput == Inputs.Pass)
+                PassWord = GetLoginInfo();
+            if (currentInput == Inputs.Check)
             CheckInfo(UserName, PassWord);
+
+            //In future there would be a method here that checks to see if the user exists in the system.
         }
 
         public string GetLoginInfo()
         {
-            while (!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape))
+            string sp, su;
+            switch (currentInput)
             {
-                if (currentInput == Inputs.User)
-                {
+                case Inputs.User:
                     WriteAt(">", 2, 4);
                     Console.SetCursorPosition(12, 4);
+                    sp = Console.ReadLine();
+                    if (sp == "")
+                    {
+                        ClearInside();
+                        WriteAtJustified("Nothing was entered, press enter to restart..", yMax / 2);
+                        Console.ReadLine();
+                        return "";
+                    }
                     currentInput = Inputs.Pass;
-                    return Console.ReadLine();
-                }
-                else
-                if (currentInput == Inputs.Pass)
-                {
+                    return sp;
+
+                case Inputs.Pass:
                     WriteAt(" ", 2, 4);
                     WriteAt(">", 2, 6);
                     Console.SetCursorPosition(12, 6);
-                    return Console.ReadLine();
-                }
+                    su = Console.ReadLine();
+                    if (su == "")
+                    {
+                        ClearInside();
+                        WriteAtJustified("Nothing was entered, press enter to restart..", yMax / 2);
+                        Console.ReadLine();
+                        return "";
+                    }
+                    currentInput = Inputs.Check;
+                    return su;
             }
             return "";
         }

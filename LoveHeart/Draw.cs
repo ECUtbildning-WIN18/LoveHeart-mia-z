@@ -56,9 +56,9 @@ namespace LoveHeart
 
         public virtual void ClearInside()
         {
-            for (int x = 1; x < xMax; x++)
+            for (int x = 1; x < xMax -1 ; x++)
             {
-                for (int y = 1; y < yMax; y++)
+                for (int y = 1; y < yMax - 1; y++)
                 {
                     WriteAt(" ", x, y);
                 }

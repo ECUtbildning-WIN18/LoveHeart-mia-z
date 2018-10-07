@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LoveHeart
@@ -16,11 +17,6 @@ namespace LoveHeart
         public MenuHandler()
         {
             state = State.PreLogin;
-        }
-
-        public void EscapeListener()
-        {
-
         }
 
         public void Run()
