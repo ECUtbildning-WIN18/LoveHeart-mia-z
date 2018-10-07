@@ -19,45 +19,45 @@ namespace LoveHeart
         public PreLogin(MenuHandler menuHandler)
         {
             MenuHandler = menuHandler;
+
             DrawBox();
+
             UserName = GetLoginInfo();
-            if (UserName == "")
-            {
-                ClearInside();
-                WriteAtJustified("Nothing was entered, press enter to restart..", yMax / 2);
-                Console.ReadLine();
-                return;
-            }
             PassWord = GetLoginInfo();
-            if (UserName == "")
-            {
-                ClearInside();
-                WriteAtJustified("Nothing was entered, press enter to restart..", yMax / 2);
-                Console.ReadLine();
-                return;
-            }
             CheckInfo(UserName, PassWord);
+            //In future there would be a method here that checks to see if the user exists in the system.
         }
 
         public string GetLoginInfo()
         {
-            while (!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape))
+            if (currentInput == Inputs.User)
             {
-                if (currentInput == Inputs.User)
+                WriteAt(">", 2, 4);
+                Console.SetCursorPosition(12, 4);
+                currentInput = Inputs.Pass;
+                string s = Console.ReadLine();
+                if (s == "")
                 {
-                    WriteAt(">", 2, 4);
-                    Console.SetCursorPosition(12, 4);
-                    currentInput = Inputs.Pass;
-                    return Console.ReadLine();
+                    ClearInside();
+                    WriteAtJustified("Nothing was entered, press enter to restart..", yMax / 2);
+                    return "";
                 }
-                else
-                if (currentInput == Inputs.Pass)
+                return s;
+            }
+            else
+            if (currentInput == Inputs.Pass)
+            {
+                WriteAt(" ", 2, 4);
+                WriteAt(">", 2, 6);
+                Console.SetCursorPosition(12, 6);
+                string s = Console.ReadLine();
+                if (s == "")
                 {
-                    WriteAt(" ", 2, 4);
-                    WriteAt(">", 2, 6);
-                    Console.SetCursorPosition(12, 6);
-                    return Console.ReadLine();
+                    ClearInside();
+                    WriteAtJustified("Nothing was entered, press enter to restart..", yMax / 2);
+                    return "";
                 }
+                return s;
             }
             return "";
         }
