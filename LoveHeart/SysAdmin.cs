@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace LoveHeart
 {
-    class Receptionist : User
+    class SysAdmin : User
     {
         int EmployeeID { get; set; }
 
-        public Receptionist(string firstName, string secondName, Accessibility power, int eid)
+        public SysAdmin(string firstName, string secondName, Accessibility power, int eid)
             : base(firstName, secondName, power)
         {
             EmployeeID = eid;

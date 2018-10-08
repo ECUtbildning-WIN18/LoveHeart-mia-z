@@ -78,7 +78,7 @@ namespace LoveHeart
             switch (response)
             {
                 case ConsoleKey.Y:
-                    MenuHandler.state = MenuHandler.State.LoggedIn;
+                    MenuHandler.state = MenuHandler.State.RMenu;
                     break;
                 default:
                     break;

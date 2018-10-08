@@ -9,7 +9,7 @@ namespace LoveHeart
 {
     class MenuHandler
     {
-        public enum State { PreLogin, LoggedIn, Register, Search, Exit }
+        public enum State { PreLogin, RMenu, Register, Search, Exit }
         public State state;
 
         public static bool exit = false;
@@ -18,7 +18,7 @@ namespace LoveHeart
         {
             state = State.PreLogin;
         }
-
+        
         public void Run()
         {
             while (state != State.Exit)
@@ -28,7 +28,7 @@ namespace LoveHeart
                     case State.PreLogin:
                         PreLogin pl = new PreLogin(this);
                         break;
-                    case State.LoggedIn:
+                    case State.RMenu:
                         Console.WriteLine("Omg u logged in u did it!");
                         break;
                     case State.Exit:
