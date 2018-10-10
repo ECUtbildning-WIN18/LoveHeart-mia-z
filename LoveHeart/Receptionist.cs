@@ -8,7 +8,7 @@ namespace LoveHeart
 {
     class Receptionist : User
     {
-        int EmployeeID { get; set; }
+        public int EmployeeID { get; set; }
 
         public Receptionist(string firstName, string secondName, Accessibility power, int eid)
             : base(firstName, secondName, power)

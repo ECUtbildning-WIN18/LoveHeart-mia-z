@@ -16,9 +16,9 @@ namespace LoveHeart
             Patient
         }
 
-        string FirstName { get; }
-        string SecondName { get; }
-        Accessibility Power { get; }
+        public string FirstName { get; }
+        public string SecondName { get; }
+        public Accessibility Power { get; }
 
         public User(string firstName, string secondName, Accessibility power)
         {
