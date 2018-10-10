@@ -21,16 +21,14 @@ namespace LoveHeart
             MenuHandler = menuHandler;
 
             ClearInside();
-            UserName = GetLoginInfo();
-            if (currentInput == Inputs.Pass)
-                PassWord = GetLoginInfo();
+            GetLoginInfo();
             if (currentInput == Inputs.Check)
             CheckInfo(UserName, PassWord);
 
             //In future there would be a method here that checks to see if the user exists in the system.
         }
 
-        public string GetLoginInfo()
+        public void GetLoginInfo()
         {
             string sp, su;
             DrawBox();
@@ -39,33 +37,34 @@ namespace LoveHeart
                 case Inputs.User:
                     WriteAt(">", 2, 4);
                     Console.SetCursorPosition(12, 4);
-                    sp = Console.ReadLine();
-                    if (sp == "")
-                    {
-                        ClearInside();
-                        WriteAtJustified("Nothing was entered, press enter to restart..", yMax / 2);
-                        Console.ReadLine();
-                        return "";
-                    }
-                    currentInput = Inputs.Pass;
-                    return sp;
-
-                case Inputs.Pass:
-                    WriteAt(" ", 2, 4);
-                    WriteAt(">", 2, 6);
-                    Console.SetCursorPosition(12, 6);
                     su = Console.ReadLine();
                     if (su == "")
                     {
                         ClearInside();
                         WriteAtJustified("Nothing was entered, press enter to restart..", yMax / 2);
                         Console.ReadLine();
-                        return "";
+                        return;
                     }
+                    UserName = su;
+                    currentInput = Inputs.Pass;
+                    goto case Inputs.Pass;
+
+                case Inputs.Pass:
+                    WriteAt(" ", 2, 4);
+                    WriteAt(">", 2, 6);
+                    Console.SetCursorPosition(12, 6);
+                    sp = Console.ReadLine();
+                    if (sp == "")
+                    {
+                        ClearInside();
+                        WriteAtJustified("Nothing was entered, press enter to restart..", yMax / 2);
+                        Console.ReadLine();
+                        return;
+                    }
+                    PassWord = sp;
                     currentInput = Inputs.Check;
-                    return su;
+                    break;
             }
-            return "";
         }
 
         public bool CheckInfo(string userName, string passWord)
