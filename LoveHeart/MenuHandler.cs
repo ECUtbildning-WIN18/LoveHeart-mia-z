@@ -12,7 +12,7 @@ namespace LoveHeart
         public enum State { PreLogin, RMenu, Register, Search, Exit }
         public State state;
 
-        public static bool exit = false;
+        public static bool exit;
 
         public MenuHandler()
         {

@@ -21,8 +21,6 @@ namespace LoveHeart
             MenuHandler = menuHandler;
 
             ClearInside();
-            DrawBox();
-
             UserName = GetLoginInfo();
             if (currentInput == Inputs.Pass)
                 PassWord = GetLoginInfo();
@@ -35,6 +33,7 @@ namespace LoveHeart
         public string GetLoginInfo()
         {
             string sp, su;
+            DrawBox();
             switch (currentInput)
             {
                 case Inputs.User:

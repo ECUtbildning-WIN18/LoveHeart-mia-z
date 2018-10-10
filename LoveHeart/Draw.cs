@@ -25,7 +25,6 @@ namespace LoveHeart
         {
             Console.SetCursorPosition(InitialX + x, InitialY + y);
             Console.Write(s);
-            Console.SetCursorPosition(1, yMax - 1);
         }
 
         public virtual void WriteAtJustified(string s, int y)
@@ -33,7 +32,6 @@ namespace LoveHeart
             int justifiedX = Convert.ToInt32(Math.Floor((double)(xMax - s.Length) / 2));
             Console.SetCursorPosition(InitialX + justifiedX, InitialY + y);
             Console.Write(s);
-            Console.SetCursorPosition(1, yMax - 1);
         }
 
         public virtual void DrawBox()
@@ -51,7 +49,6 @@ namespace LoveHeart
                     y++;
                 }
             }
-            Console.SetCursorPosition(1, yMax - 1);
         }
 
         public virtual void ClearInside()
@@ -63,7 +60,6 @@ namespace LoveHeart
                     WriteAt(" ", x, y);
                 }
             }
-            Console.SetCursorPosition(1, yMax - 1);
         }
     }
 }

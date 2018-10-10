@@ -57,13 +57,14 @@
     <Compile Include="RMenu.cs" />
     <Compile Include="SysAdmin.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="FileHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="db.txt">
+    <Content Include="db.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
