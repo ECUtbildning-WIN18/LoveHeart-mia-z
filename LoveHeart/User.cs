@@ -18,12 +18,14 @@ namespace LoveHeart
 
         public string FirstName { get; }
         public string SecondName { get; }
+        public string Password { get; set; }
         public Accessibility Power { get; }
 
-        public User(string firstName, string secondName, Accessibility power)
+        public User(string firstName, string secondName, string password, Accessibility power)
         {
             FirstName = firstName;
             SecondName = secondName;
+            Password = password;
             Power = power;
         }
     }

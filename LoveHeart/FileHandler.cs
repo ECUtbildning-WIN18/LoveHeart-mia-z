@@ -26,13 +26,28 @@ namespace LoveHeart
         public void AddNewUser(User userToAdd)
         {
             Users.Add(userToAdd);
+            //OLD METHOD - STRING BUFFER :ECH:
             //string fileToWrite = JsonConvert.SerializeObject(Users, Formatting.Indented);
             using (StreamWriter file = File.CreateText(@"db.json"))
             {
                 JsonSerializer js = new JsonSerializer();
                 js.Serialize(file, Users);
             }
-            
+        }
+
+        public User LoginAuthenticator(string u, string p)
+        {
+            foreach (var user in Users)
+            {
+                if (u == user.FirstName)
+                {
+                    if (p == user.Password)
+                    {
+                        return user;
+                    }
+                }
+            }
+            return null;
         }
     }
 }

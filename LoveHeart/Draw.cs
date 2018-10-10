@@ -9,7 +9,7 @@ namespace LoveHeart
     abstract class Draw
     {
         public const int xMax = 80;
-        public const int yMax = 25;
+        public const int yMax = 23;
 
         public static int InitialX;
         public static int InitialY;
@@ -21,7 +21,7 @@ namespace LoveHeart
             InitialY = Console.CursorLeft;
         }
 
-        public virtual void WriteAt(string s, int x, int y)
+        public void WriteAt(string s, int x, int y)
         {
             Console.SetCursorPosition(InitialX + x, InitialY + y);
             Console.Write(s);

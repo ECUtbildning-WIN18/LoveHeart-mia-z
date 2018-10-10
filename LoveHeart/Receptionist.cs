@@ -10,8 +10,8 @@ namespace LoveHeart
     {
         public int EmployeeID { get; set; }
 
-        public Receptionist(string firstName, string secondName, Accessibility power, int eid)
-            : base(firstName, secondName, power)
+        public Receptionist(string firstName, string secondName, string password, Accessibility power, int eid)
+            : base(firstName, secondName, password, power)
         {
             EmployeeID = eid;
         }

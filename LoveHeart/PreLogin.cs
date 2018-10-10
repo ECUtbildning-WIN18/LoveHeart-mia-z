@@ -25,7 +25,13 @@ namespace LoveHeart
             if (currentInput == Inputs.Check)
             CheckInfo(UserName, PassWord);
 
-            //In future there would be a method here that checks to see if the user exists in the system.
+            User userToLogIn = Program.fh.LoginAuthenticator(UserName, PassWord);
+            if (userToLogIn == null)
+            {
+                ClearInside();
+                WriteAtJustified("User not found or password incorrect.Press return to continue..", yMax / 2);
+                Console.ReadLine();
+            }
         }
 
         public void GetLoginInfo()
